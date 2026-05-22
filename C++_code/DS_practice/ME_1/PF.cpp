@@ -1,48 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solve(int n){
-    vector<int> arr;
-    for (int i=1; i<=n; i++){
-        arr.push_back(i);
+void solve(){
+    int n;
+    cin >> n;
+    vector<int> nums;
+    int temp, grade;
+    for (int i=0; i<n; i++){
+        cin >> temp;
+        nums.push_back(temp);
     }
-    bool dir = true;
-    while (arr.size() != 1){
-        vector<int> temp;
-        int count = 1;
-        if (dir){
-            dir = false;
-            for (int i=0; i<(int)arr.size(); i++){
-                if (count % 2 == 1){
-                    temp.push_back(arr[i]);
-                }
-                count++;
-            }
-            arr = temp;
-        }else {
-            dir = true;
-            for (int i=arr.size()-1; i>=0; i--){
-                if (count % 2 == 1){
-                    temp.push_back(arr[i]);
-                }
-                count++;
-            }
-            arr = temp;
+    cin >> grade;
+    vector<int> group_a = {1};
+    vector<int> group_b = {1};
+    for (int i=0; i<n; i++){
+        if (group_a[0] * nums[i] && grade % (group_a[0] * nums[i]) == 0){
+            group_a.push_back(nums[i]);
+            group_a[0] *= nums[i];
+        }else if (group_b[0] * nums[i] && grade % (group_b[0] * nums[i]) == 0){
+            group_b.push_back(nums[i]);
+            group_b[0] *= nums[i];
         }
     }
-    cout << arr[0];
+    if (group_a[0] == grade && group_b[0] == grade){
+        cout << "T" << endl;
+    }else {
+        cout << "F" << endl;
+    }
 }
 
 int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
     int n;
-    while (cin >> n){
-        solve(n);
+    cin >> n;
+    while (n--){
+        solve();
     }
 }
-
-/*
- 2 4 6 8 
-*/
