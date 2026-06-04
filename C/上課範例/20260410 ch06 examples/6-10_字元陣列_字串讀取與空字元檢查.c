@@ -1,45 +1,27 @@
 // Fig. 6.10: fig06_10.c
-// Treating character arrays as strings.
+// 將字元陣列視為字串處理。
 #include <stdio.h>
 #define SIZE 20
 
-// function main begins program execution
+// 主程式開始執行
 int main(void)
 {
-   char string1[SIZE]; // reserves 20 characters
-   char string2[] = "string literal"; // reserves 15 characters
+   char string1[SIZE]; // 配置 20 個字元的空間
+   char string2[] = "string literal"; // 配置 15 個字元的空間（包含空字元 \0）
 
-   // read string from user into array string1
+   // 從使用者端讀取字串並存入陣列 string1
    printf("%s", "Enter a string (no longer than 19 characters): ");
-   scanf("%19s", string1); // input no more than 19 characters
+   scanf("%19s", string1); // 最多讀取 19 個字元（留一個空間給 \0）
 
-   // output strings
+   // 輸出字串
    printf("string1 is: %s\nstring2 is: %s\n"                  
-           "string1 with spaces between characters is:\n",     
-           string1, string2);                                    
+          "string1 with spaces between characters is:\n",     
+          string1, string2);                                    
 
-   // output characters until null character is reached  
+   // 逐一輸出字元，直到遇到空字元（null character）為止  
    for (size_t i = 0; i < SIZE && string1[i] != '\0'; ++i) {
       printf("%c ", string1[i]);                     
    }                                           
 
    puts("");
 }
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-

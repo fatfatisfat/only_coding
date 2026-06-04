@@ -1,79 +1,58 @@
 // Fig. 6.13: fig06_13.c
-// Passing arrays and individual array elements to functions.
+// 將陣列與單一陣列元素傳遞給函式。
 #include <stdio.h>
 #define SIZE 5
 
-// function prototypes
+// 函式原型宣告
 void modifyArray(int b[], size_t size);
 void modifyElement(int e);               
 
-// function main begins program execution
+// 主程式開始執行
 int main(void)
 {
-   int a[SIZE] = { 0, 1, 2, 3, 4 }; // initialize array a
+   int a[SIZE] = { 0, 1, 2, 3, 4 }; // 初始化陣列 a
 
    puts("Effects of passing entire array by reference:\n\nThe "
       "values of the original array are:");
 
-   // output original array
+   // 輸出原始陣列
    for (size_t i = 0; i < SIZE; ++i) { 
       printf("%3d", a[i]);
    } 
 
-   puts(""); // outputs a newline
+   puts(""); // 輸出換行
 
-   modifyArray(a, SIZE); // pass array a to modifyArray by reference                         
+   modifyArray(a, SIZE); // 以傳址（by reference）方式將陣列 a 傳遞給 modifyArray                         
    puts("The values of the modified array are:");
 
-   // output modified array
+   // 輸出修改後的陣列
    for (size_t i = 0; i < SIZE; ++i) {
       printf("%3d", a[i]);
    } 
 
-   // output value of a[3]
+   // 輸出 a[3] 的值
    printf("\n\n\nEffects of passing array element "
       "by value:\n\nThe value of a[3] is %d\n", a[3]);
    
-   modifyElement(a[3]); // pass array element a[3] by value
+   modifyElement(a[3]); // 以傳值（by value）方式將陣列元素 a[3] 傳遞出去
 
-   // output value of a[3]
+   // 輸出 a[3] 的值
    printf("The value of a[3] is %d\n", a[3]);
 }
 
-// in function modifyArray, "b" points to the original array "a" 
-// in memory                                                     
+// 在 modifyArray 函式中，「b」指向記憶體中原始的陣列「a」
 void modifyArray(int b[], size_t size)                               
-{                                                                   
-   // multiply each array element by 2                         
-   for (size_t j = 0; j < size; ++j) {                                 
-      b[j] *= 2; // actually modifies original array               
-   }                                                 
+{                                                                                                     
+   // 將每個陣列元素乘以 2                                        
+   for (size_t j = 0; j < size; ++j) {                                                                
+      b[j] *= 2; // 這會實際修改到呼叫端的原始陣列               
+   }                                                                                
 } 
 
-// in function modifyElement, "e" is a local copy of array element
-// a[3] passed from main                                     
+// 在 modifyElement 函式中，「e」是從 main 傳遞進來的
+// 陣列元素 a[3] 的本機複本（傳值呼叫）
 void modifyElement(int e)                                       
-{                                                                 
-   // multiply parameter by 2                                  
+{                                                                                                     
+   // 將參數乘以 2並印出
    printf("Value in modifyElement is %d\n", e *= 2);            
-} 
-                          
-
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+}

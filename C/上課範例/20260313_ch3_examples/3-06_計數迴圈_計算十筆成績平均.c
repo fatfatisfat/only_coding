@@ -1,45 +1,29 @@
 // Fig. 3.6: fig03_06.c
-// Class average program with counter-controlled iteration
+// 使用計數器控制迭代的班級平均成績程式
 #include <stdio.h>
 
-// function main begins program execution
+// main 函式開始程式執行
 int main( void )
 {
-   unsigned int counter; // number of grade to be entered next
-   int grade; // grade value
-   int total; // sum of grades entered by user
-   int average; // average of grades
+   unsigned int counter; // 下一個要輸入的成績編號
+   int grade; // 成績數值
+   int total; // 使用者輸入成績的總和
+   int average; // 成績平均值
    
-   // initialization phase
-   total = 0; // initialize total
-   counter = 1; // initialize loop counter
+   // 初始化階段
+   total = 0; // 初始化總和
+   counter = 1; // 初始化迴圈計數器
    
-   // processing phase
-   while ( counter <= 10 ) { // loop 10 times
-      printf( "%s", "Enter grade: " ); // prompt for input
-      scanf( "%d", &grade ); // read grade from user
-      total = total + grade; // add grade to total
-      counter = counter + 1; // increment counter
-   } // end while
+   // 處理階段
+   while ( counter <= 10 ) { // 迴圈執行 10 次
+      printf( "%s", "Enter grade: " ); // 提示輸入
+      scanf( "%d", &grade ); // 讀取使用者輸入的成績
+      total = total + grade; // 將成績加入總和
+      counter = counter + 1; // 累加計數器
+   } // while 迴圈結束
    
-   // termination phase
-   average = total / 10; // integer division
+   // 終止階段
+   average = total / 10; // 整數除法
 
-   printf( "Class average is %d\n", average ); // display result
-} // end function main
-
-/**************************************************************************
- * (C) Copyright 1992-2013 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+   printf( "Class average is %d\n", average ); // 顯示結果
+} // main 函式結束

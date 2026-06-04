@@ -1,34 +1,19 @@
 // Fig. 4.12: fig04_12.c
-// Using the continue statement in a for statement
+// 在 for 迴圈中使用 continue 陳述式
 #include <stdio.h>
 
 int main(void)
 {
-   // loop 10 times
+   // 執行 10 次迴圈
    for (unsigned int x = 1; x <= 10; ++x) {
 
-      // if x is 5, continue with next iteration of loop
+      // 如果 x 等於 5，則繼續執行迴圈的下一次疊代
       if (x == 5) {   
-         continue; // skip remaining code in loop body
+         continue; // 跳過迴圈主體中剩餘的程式碼
       }
 
-      printf("%u ", x); // display value of x
+      printf("%u ", x); // 顯示 x 的值
    } 
    
    puts("\nUsed continue to skip printing the value 5");
 }
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/

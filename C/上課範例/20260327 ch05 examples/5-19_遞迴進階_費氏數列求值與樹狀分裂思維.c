@@ -1,48 +1,32 @@
 // Fig. 5.19: fig05_19.c
-// Recursive fibonacci function
+// 遞迴費氏數列函式
 #include <stdio.h>
 
-unsigned long long int fibonacci(unsigned int n); // function prototype
+unsigned long long int fibonacci(unsigned int n); // 函式原型宣告
 
 int main(void)
 {
-   unsigned int number; // number input by user
+   unsigned int number; // 使用者輸入的數值
 
-   // obtain integer from user
+   // 從使用者端取得一個整數
    printf("%s", "Enter an integer: ");
    scanf("%u", &number);
 
-   // calculate fibonacci value for number input by user
+   // 計算使用者輸入數值的費氏數列值
    unsigned long long int result = fibonacci(number);
 
-   // display result
+   // 顯示結果
    printf("Fibonacci(%u) = %llu\n", number, result);
 } 
 
-// Recursive definition of function fibonacci              
+// 費氏數列函式的遞迴定義              
 unsigned long long int fibonacci(unsigned int n)      
-{                                                         
-   // base case                                           
-   if (0 == n || 1 == n) {                               
-      return n;                                            
+{                                                                        
+   // 基本情況（終止條件）                                                                  
+   if (0 == n || 1 == n) {                                               
+      return n;                                                            
    }                                            
-   else { // recursive step                            
+   else { // 遞迴步驟                                   
       return fibonacci(n - 1) + fibonacci(n - 2);        
    }                                         
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

@@ -1,5 +1,5 @@
 // Fig. 4.7: fig04_07.c
-// Counting letter grades with switch
+// 使用 switch 語句統計字母成績
 #include <stdio.h>
 
 int main(void)
@@ -10,75 +10,58 @@ int main(void)
    unsigned int dCount = 0;
    unsigned int fCount = 0; 
 
-   puts("Enter the letter grades." );
-   puts("Enter the EOF character to end input." );
-   int grade; // one grade 
+   puts("Enter the letter grades.");
+   puts("Enter the EOF character to end input.");
+   int grade; // 存放單一成績
 
-   // loop until user types end-of-file key sequence
+   // 迴圈直到使用者輸入檔案結束符號 (EOF)
    while ((grade = getchar()) != EOF) {
       
-      // determine which grade was input
-      switch (grade) { // switch nested in while
+      // 判斷輸入的是哪一個成績
+      switch (grade) { // switch 巢狀於 while 迴圈中
 
-         case 'A': // grade was uppercase A
-         case 'a': // or lowercase a
+         case 'A': // 成績是大寫 A
+         case 'a': // 或是小寫 a
             ++aCount; 
-            break; // necessary to exit switch
+            break; // 必須使用 break 以跳出 switch
 
-         case 'B': // grade was uppercase B
-         case 'b': // or lowercase b
+         case 'B': // 成績是大寫 B
+         case 'b': // 或是小寫 b
             ++bCount;
             break;
 
-         case 'C': // grade was uppercase C
-         case 'c': // or lowercase c
+         case 'C': // 成績是大寫 C
+         case 'c': // 或是小寫 c
             ++cCount; 
             break;
 
-         case 'D': // grade was uppercase D
-         case 'd': // or lowercase d
+         case 'D': // 成績是大寫 D
+         case 'd': // 或是小寫 d
             ++dCount; 
             break;
 
-         case 'F': // grade was uppercase F
-         case 'f': // or lowercase f
+         case 'F': // 成績是大寫 F
+         case 'f': // 或是小寫 f
             ++fCount;
             break; 
 
-         case '\n': // ignore newlines,
-         case '\t': // tabs,
-         case ' ': // and spaces in input
+         case '\n': // 忽略輸入中的換行符號、
+         case '\t': // Tab 符號、
+         case ' ':  // 以及空白字元
             break; 
 
-         default: // catch all other characters
+         default: // 捕捉所有其他字元
             printf("%s", "Incorrect letter grade entered."); 
             puts(" Enter a new grade."); 
-            break; // optional; will exit switch anyway
+            break; 
       } 
    } // end while
 
-   // output summary of results
+   // 輸出統計結果總結
    puts("\nTotals for each letter grade are:");
    printf("A: %u\n", aCount);
    printf("B: %u\n", bCount); 
    printf("C: %u\n", cCount); 
    printf("D: %u\n", dCount); 
    printf("F: %u\n", fCount); 
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+}

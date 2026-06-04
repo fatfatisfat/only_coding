@@ -1,40 +1,24 @@
 // Fig. 4.6: fig04_06.c
-// Calculating compound interest
+// 計算複利（Compound interest）
 #include <stdio.h>
-#include <math.h>  
+#include <math.h>   
 
 int main(void)
 {
-   double principal = 1000.0; // starting principal
-   double rate = .05; // annual interest rate
+   double principal = 1000.0; // 起始本金
+   double rate = .05; // 年利率
 
-   // output table column heads
+   // 輸出表格欄位標題
    printf("%4s%21s\n", "Year", "Amount on deposit");
 
-   // calculate amount on deposit for each of ten years
+   // 計算未來十年的存款金額
    for (unsigned int year = 1; year <= 10; ++year) {
 
-      // calculate new amount for specified year
+      // 使用 pow 函式計算指定年份的新金額
+      // 公式為：A = P(1 + r)^n
       double amount = principal * pow(1.0 + rate, year);
 
-      // output one table row
+      // 輸出表格中的一行資料，金額顯示至小數點後兩位
       printf("%4u%21.2f\n", year, amount);   
    }
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

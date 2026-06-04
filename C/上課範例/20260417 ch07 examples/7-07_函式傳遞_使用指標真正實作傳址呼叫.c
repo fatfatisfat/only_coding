@@ -1,43 +1,24 @@
 // Fig. 7.7: fig07_07.c
-// Cube a variable using pass-by-reference with a pointer argument.
+// 使用指標引數進行傳址呼叫（pass-by-reference）來計算變數的三次方。
 
 #include <stdio.h>
 
-void cubeByReference(int *nPtr); // function prototype
+void cubeByReference(int *nPtr); // 函式原型宣告
 
 int main(void)
 {
-   int number = 5; // initialize number
+   int number = 5; // 初始化 number
 
-   printf("The original value of number is %d", number);
+   printf("number 的原始值為 %d", number);
  
-   // pass address of number to cubeByReference
+   // 將 number 的記憶體位址傳遞給 cubeByReference
    cubeByReference(&number);
 
-   printf("\nThe new value of number is %d\n", number);
+   printf("\nnumber 的新值為 %d\n", number);
 } 
 
-// calculate cube of *nPtr; actually modifies number in main
+// 計算 *nPtr 的三次方；此操作實際上會修改 main 函式中的 number 變數值
 void cubeByReference(int *nPtr)                              
 {                                                              
-   *nPtr = *nPtr * *nPtr * *nPtr; // cube *nPtr            
+   *nPtr = *nPtr * *nPtr * *nPtr; // 計算 *nPtr 的三次方            
 }
-                         
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-

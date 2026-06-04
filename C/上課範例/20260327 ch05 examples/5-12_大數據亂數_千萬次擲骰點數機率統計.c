@@ -1,51 +1,51 @@
 // Fig. 5.12: fig05_12.c
-// Rolling a six-sided die 60,000,000 times.
+// 模擬擲六面骰子 60,000,000 次。
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(void)
 { 
-   unsigned int frequency1 = 0; // rolled 1 counter
-   unsigned int frequency2 = 0; // rolled 2 counter
-   unsigned int frequency3 = 0; // rolled 3 counter
-   unsigned int frequency4 = 0; // rolled 4 counter
-   unsigned int frequency5 = 0; // rolled 5 counter
-   unsigned int frequency6 = 0; // rolled 6 counter
+   unsigned int frequency1 = 0; // 擲出 1 點的計數器
+   unsigned int frequency2 = 0; // 擲出 2 點的計數器
+   unsigned int frequency3 = 0; // 擲出 3 點的計數器
+   unsigned int frequency4 = 0; // 擲出 4 點的計數器
+   unsigned int frequency5 = 0; // 擲出 5 點的計數器
+   unsigned int frequency6 = 0; // 擲出 6 點的計數器
 
-   // loop 60000000 times and summarize results
+   // 執行迴圈 60,000,000 次並統計結果
    for (unsigned int roll = 1; roll <= 60000000; ++roll) {
-      int face = 1 + rand() % 6; // random number from 1 to 6
+      int face = 1 + rand() % 6; // 隨機產生 1 到 6 的數值
 
-      // determine face value and increment appropriate counter
+      // 判斷點數並累加對應的計數器
       switch (face) {
 
-         case 1: // rolled 1
+         case 1: // 擲出 1 點
             ++frequency1;
             break;
 
-         case 2: // rolled 2
+         case 2: // 擲出 2 點
             ++frequency2;
             break;
        
-         case 3: // rolled 3
+         case 3: // 擲出 3 點
             ++frequency3;
             break;
          
-         case 4: // rolled 4
+         case 4: // 擲出 4 點
             ++frequency4;
             break;
          
-         case 5: // rolled 5
+         case 5: // 擲出 5 點
             ++frequency5;
             break;
          
-         case 6: // rolled 6
+         case 6: // 擲出 6 點
             ++frequency6;
-            break; // optional
+            break; // 可選的
       } 
    } 
    
-   // display results in tabular format
+   // 以表格格式顯示統計結果
    printf("%s%13s\n", "Face", "Frequency");
    printf("   1%13u\n", frequency1);
    printf("   2%13u\n", frequency2);
@@ -53,21 +53,4 @@ int main(void)
    printf("   4%13u\n", frequency4);
    printf("   5%13u\n", frequency5);
    printf("   6%13u\n", frequency6);
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

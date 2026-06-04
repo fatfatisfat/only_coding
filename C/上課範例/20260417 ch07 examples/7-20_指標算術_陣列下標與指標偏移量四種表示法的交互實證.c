@@ -1,61 +1,43 @@
 // Fig. 7.20: fig07_20.cpp
-// Using indexing and pointer notations with arrays.
+// 對陣列使用索引記法與指標記法。
 #include <stdio.h>
 #define ARRAY_SIZE 4
 
 int main(void)
 {
-   int b[] = {10, 20, 30, 40}; // create and initialize array b
-   int *bPtr = b; // create bPtr and point it to array b
+   int b[] = {10, 20, 30, 40}; // 建立並初始化陣列 b
+   int *bPtr = b; // 建立指標 bPtr 並將其指向陣列 b
 
-   // output array b using array index notation
-   puts("Array b printed with:\nArray index notation");
+   // 使用陣列索引記法輸出陣列 b
+   puts("輸出陣列 b，使用：\n陣列索引記法");
 
-   // loop through array b
+   // 巡訪陣列 b
    for (size_t i = 0; i < ARRAY_SIZE; ++i) {
       printf("b[%u] = %d\n", i, b[i]);
    } 
 
-   // output array b using array name and pointer/offset notation
-   puts("\nPointer/offset notation where\n"
-         "the pointer is the array name");
+   // 使用陣列名稱與指標/偏移量記法輸出陣列 b
+   puts("\n指標/偏移量記法，其中\n"
+        "指標即為陣列名稱");
 
-   // loop through array b
+   // 巡訪陣列 b
    for (size_t offset = 0; offset < ARRAY_SIZE; ++offset) {
       printf("*(b + %u) = %d\n", offset, *(b + offset));  
    } 
 
-   // output array b using bPtr and array index notation
-   puts("\nPointer index notation");
+   // 使用 bPtr 與陣列索引記法輸出陣列 b
+   puts("\n指標索引記法");
 
-   // loop through array b
+   // 巡訪陣列 b
    for (size_t i = 0; i < ARRAY_SIZE; ++i) {
       printf("bPtr[%u] = %d\n", i, bPtr[i]);
    } 
 
-   // output array b using bPtr and pointer/offset notation
-   puts("\nPointer/offset notation");
+   // 使用 bPtr 與指標/偏移量記法輸出陣列 b
+   puts("\n指標/偏移量記法");
 
-   // loop through array b
+   // 巡訪陣列 b
    for (size_t offset = 0; offset < ARRAY_SIZE; ++offset) {
       printf("*(bPtr + %u) = %d\n", offset, *(bPtr + offset));   
    } 
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+}

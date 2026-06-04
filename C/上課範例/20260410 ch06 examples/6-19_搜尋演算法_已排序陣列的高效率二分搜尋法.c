@@ -1,33 +1,33 @@
 // Fig. 6.19: fig06_19.c
-// Binary search of a sorted array.
+// 已排序陣列的二元搜尋。
 #include <stdio.h>
 #define SIZE 15
 
-// function prototypes
+// 函式原型宣告
 size_t binarySearch(const int b[], int searchKey, size_t low, size_t high);
 void printHeader(void);
 void printRow(const int b[], size_t low, size_t mid, size_t high);
 
-// function main begins program execution
+// 主程式開始執行
 int main(void)
 {
-   int a[SIZE]; // create array a
+   int a[SIZE]; // 建立陣列 a
 
-   // create data
+   // 建立測試資料
    for (size_t i = 0; i < SIZE; ++i) {
       a[i] = 2 * i;
    } 
 
    printf("%s", "Enter a number between 0 and 28: ");
-   int key; // value to locate in array a
+   int key; // 準備在陣列 a 中尋找的值
    scanf("%d", &key);
 
    printHeader();
 
-   // search for key in array a
+   // 在陣列 a 中搜尋目標值（key）
    size_t result = binarySearch(a, key, 0, SIZE - 1);
 
-   // display results
+   // 顯示搜尋結果
    if (result != -1) {
       printf("\n%d found at index %d\n", key, result);
    } 
@@ -36,93 +36,74 @@ int main(void)
    } 
 }
 
-// function to perform binary search of an array
+// 執行陣列二元搜尋的函式
 size_t binarySearch(const int b[], int searchKey, size_t low, size_t high)
 {
-   // loop until low index is greater than high index
+   // 當低索引小於或等於高索引時持續循環
    while (low <= high) {
 
-      // determine middle element of subarray being searched
+      // 計算目前搜尋子陣列的中間元素索引
       size_t middle = (low + high) / 2;
 
-      // display subarray used in this loop iteration
+      // 顯示本次循環疊代所處理的子陣列
       printRow(b, low, middle, high);
 
-      // if searchKey matched middle element, return middle
-      if (searchKey == b[middle]) {                       
-         return middle;                                       
-      }                                           
+      // 如果目標值與中間元素相符，回傳中間索引
+      if (searchKey == b[middle]) {                                       
+         return middle;                                                                      
+      }                                                                   
 
-      // if searchKey is less than middle element, set new high
+      // 如果目標值小於中間元素，調整新的高索引
       else if (searchKey < b[middle]) {                    
-         high = middle - 1; // search low end of array      
+         high = middle - 1; // 搜尋陣列的後半段（較小的一端）      
       }                                     
 
-      // if searchKey is greater than middle element, set new low
-      else {                                                     
-         low = middle + 1; // search high end of array        
-      }                                            
+      // 如果目標值大於中間元素，調整新的低索引
+      else {                                                                                   
+         low = middle + 1; // 搜尋陣列的前半段（較大的一端）        
+      }                                                                            
    } // end while
 
-   return -1; // searchKey not found
+   return -1; // 找不到目標值
 } 
 
-// Print a header for the output
+// 印出輸出結果的標頭
 void printHeader(void)
 {
    puts("\nSubscripts:");
 
-   // output column head
+   // 輸出欄位索引標頭
    for (unsigned int i = 0; i < SIZE; ++i) {
       printf("%3u ", i);
    } 
 
-   puts(""); // start new line of output
+   puts(""); // 換行
 
-   // output line of - characters
+   // 輸出分隔線（由 - 字元組成）
    for (unsigned int i = 1; i <= 4 * SIZE; ++i) {
       printf("%s", "-");
    } 
 
-   puts(""); // start new line of output
+   puts(""); // 換行
 } 
 
-// Print one row of output showing the current
-// part of the array being processed.
+// 印出一列輸出，顯示目前正在處理的陣列範圍
 void printRow(const int b[], size_t low, size_t mid, size_t high)
 {
-   // loop through entire array
+   // 走訪整個陣列
    for (size_t i = 0; i < SIZE; ++i) {
 
-      // display spaces if outside current subarray range
+      // 如果在當前子陣列範圍之外，顯示空白
       if (i < low || i > high) {
          printf("%s", "    ");
       }  
-      else if (i == mid) { // display middle element
-         printf("%3d*", b[i]); // mark middle value
+      else if (i == mid) { // 顯示中間元素
+         printf("%3d*", b[i]); // 標記中間值
       } 
-      else { // display other elements in subarray
+      else { // 顯示子陣列中的其他元素
          printf("%3d ", b[i]);
       } 
    } 
 
-   puts(""); // start new line of output
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+   puts(""); // 換行
+}

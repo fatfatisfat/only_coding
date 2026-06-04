@@ -1,49 +1,49 @@
 // Fig. 6.22: fig06_22.c
-// Two-dimensional array manipulations.
+// 二維陣列處理。
 #include <stdio.h>
 #define STUDENTS 3
 #define EXAMS 4
 
-// function prototypes
+// 函式原型宣告
 int minimum(const int grades[][EXAMS], size_t pupils, size_t tests);
 int maximum(const int grades[][EXAMS], size_t pupils, size_t tests);
 double average(const int setOfGrades[], size_t tests);
 void printArray(const int grades[][EXAMS], size_t pupils, size_t tests);
 
-// function main begins program execution
+// 主程式開始執行
 int main(void)
 {
-   // initialize student grades for three students (rows)
+   // 初始化三位學生（列）的成績
    int studentGrades[STUDENTS][EXAMS] =  
       { { 77, 68, 86, 73 },
         { 96, 87, 89, 78 },
         { 70, 90, 86, 81 } };
 
-   // output array studentGrades
+   // 輸出陣列 studentGrades
    puts("The array is:");
    printArray(studentGrades, STUDENTS, EXAMS);
 
-   // determine smallest and largest grade values
+   // 找出最低與最高成績
    printf("\n\nLowest grade: %d\nHighest grade: %d\n",
       minimum(studentGrades, STUDENTS, EXAMS),
       maximum(studentGrades, STUDENTS, EXAMS));
 
-   // calculate average grade for each student
+   // 計算每位學生的平均成績
    for (size_t student = 0; student < STUDENTS; ++student) {
       printf("The average grade for student %u is %.2f\n", 
          student, average(studentGrades[student], EXAMS));
    } 
 }
 
-// Find the minimum grade
+// 尋找最低成績
 int minimum(const int grades[][EXAMS], size_t pupils, size_t tests)
 {
-   int lowGrade = 100; // initialize to highest possible grade
+   int lowGrade = 100; // 初始化為最高可能的分數
 
-   // loop through rows of grades
+   // 邏輯走訪成績的每一列（學生）
    for (size_t i = 0; i < pupils; ++i) {
 
-      // loop through columns of grades
+      // 邏輯走訪成績的每一行（考試）
       for (size_t j = 0; j < tests; ++j) {
 
          if (grades[i][j] < lowGrade) {
@@ -52,18 +52,18 @@ int minimum(const int grades[][EXAMS], size_t pupils, size_t tests)
       } 
    } 
 
-   return lowGrade; // return minimum grade 
+   return lowGrade; // 回傳最低成績 
 } 
 
-// Find the maximum grade
+// 尋找最高成績
 int maximum(const int grades[][EXAMS], size_t pupils, size_t tests)
 {
-   int highGrade = 0; // initialize to lowest possible grade
+   int highGrade = 0; // 初始化為最低可能的分數
 
-   // loop through rows of grades
+   // 邏輯走訪成績的每一列（學生）
    for (size_t i = 0; i < pupils; ++i) {
 
-      // loop through columns of grades
+      // 邏輯走訪成績的每一行（考試）
       for (size_t j = 0; j < tests; ++j) {
 
          if (grades[i][j] > highGrade) {
@@ -72,53 +72,37 @@ int maximum(const int grades[][EXAMS], size_t pupils, size_t tests)
       } 
    } 
 
-   return highGrade; // return maximum grade
+   return highGrade; // 回傳最高成績
 } 
 
-// Determine the average grade for a particular student
+// 計算特定學生的平均成績
 double average(const int setOfGrades[], size_t tests)      
-{                                                         
-   int total = 0; // sum of test grades                
-                                                          
-   // total all grades for one student                 
+{                                                                
+   int total = 0; // 考試成績總和                
+                                                                 
+   // 加總該位學生的所有成績                 
    for (size_t i = 0; i < tests; ++i) {                        
       total += setOfGrades[i];                          
-   }                                         
-                                                          
-   return (double) total / tests; // average         
+   }                                        
+                                                                 
+   return (double) total / tests; // 回傳平均值         
 } 
 
-// Print the array
+// 印出陣列內容
 void printArray(const int grades[][EXAMS], size_t pupils, size_t tests)
 {
-   // output column heads
+   // 輸出欄位標頭（考試標號）
    printf("%s", "                 [0]  [1]  [2]  [3]");
 
-   // output grades in tabular format
+   // 以表格格式輸出成績
    for (size_t i = 0; i < pupils; ++i) {
 
-      // output label for row
+      // 輸出列標籤（學生標號）
       printf("\nstudentGrades[%u] ", i);
 
-      // output grades for one student
+      // 輸出該位學生的所有成績
       for (size_t j = 0; j < tests; ++j) {
          printf("%-5d", grades[i][j]);
       } 
    } 
-} 
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+}

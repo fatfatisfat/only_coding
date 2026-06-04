@@ -1,68 +1,69 @@
 // Fig. 6.23: fig06_23.c
-// Using variable-length arrays in C99
+// 在 C99 中使用變長陣列（VLA）
 #include <stdio.h>
 
-// function prototypes
+// 函式原型宣告
 void print1DArray(size_t size, int array[size]);
 void print2DArray(size_t row, size_t col, int array[row][col]);
 
 int main(void)
 {
-   printf("%s", "Enter size of a one-dimensional array: ");
-   int arraySize; // size of 1-D array
+   printf("%s", "輸入一維陣列的大小: ");
+   int arraySize; // 一維陣列的大小
    scanf("%d", &arraySize);
 
-   int array[arraySize]; // declare 1-D variable-length array      
+   int array[arraySize]; // 宣告一維變長陣列      
 
-   printf("%s", "Enter number of rows and columns in a 2-D array: ");
-   int row1, col1; // number of rows and columns in a 2-D array
+   printf("%s", "輸入二維陣列的列數（row）與行數（column）: ");
+   int row1, col1; // 二維陣列的列數與行數
    scanf("%d %d", &row1, &col1);
 
-   int array2D1[row1][col1]; // declare 2-D variable-length array
+   int array2D1[row1][col1]; // 宣告二維變長陣列
 
    printf("%s", 
-      "Enter number of rows and columns in another 2-D array: ");
-   int row2, col2; // number of rows and columns in another 2-D array
+      "輸入另一個二維陣列的列數與行數: ");
+   int row2, col2; // 另一個二維陣列的列數與行數
    scanf("%d %d", &row2, &col2);
 
-   int array2D2[row2][col2]; // declare 2-D variable-length array
+   int array2D2[row2][col2]; // 宣告二維變長陣列
 
-   // test sizeof operator on VLA
-   printf("\nsizeof(array) yields array size of %d bytes\n",
+   // 測試 sizeof 運算子用於變長陣列（VLA）的表現
+   // 這裡會在執行期根據輸入的大小動態計算出位元組數
+   printf("\nsizeof(array) 產生的陣列大小為 %d 位元組\n",
       sizeof(array));                                     
 
-   // assign elements of 1-D VLA
+   // 為一維變長陣列的元素賦值
    for (size_t i = 0; i < arraySize; ++i) {
       array[i] = i * i;
    } 
 
-   // assign elements of first 2-D VLA
+   // 為第一個二維變長陣列的元素賦值
    for (size_t i = 0; i < row1; ++i) {
       for (size_t j = 0; j < col1; ++j) {
          array2D1[i][j] = i + j;
       } 
    } 
 
-   // assign elements of second 2-D VLA
+   // 為第二個二維變長陣列的元素賦值
    for (size_t i = 0; i < row2; ++i) {
       for (size_t j = 0; j < col2; ++j) {
          array2D2[i][j] = i + j;
       } 
    } 
 
-   puts("\nOne-dimensional array:");
-   print1DArray(arraySize, array); // pass 1-D VLA to function
+   puts("\n一維陣列：");
+   print1DArray(arraySize, array); // 將一維變長陣列傳遞給函式
 
-   puts("\nFirst two-dimensional array:");
-   print2DArray(row1, col1, array2D1); // pass 2-D VLA to function
+   puts("\n第一個二維陣列：");
+   print2DArray(row1, col1, array2D1); // 將二維變長陣列傳遞給函式
 
-   puts("\nSecond two-dimensional array:");
-   print2DArray(row2, col2, array2D2); // pass other 2-D VLA to function
+   puts("\n第二個二維陣列：");
+   print2DArray(row2, col2, array2D2); // 將另一個二維變長陣列傳遞給函式
 }
 
 void print1DArray(size_t size, int array[size])
 {
-   // output contents of array
+   // 輸出陣列內容
    for (size_t i = 0; i < size; i++) {
       printf("array[%d] = %d\n", i, array[i]);
    } 
@@ -70,7 +71,7 @@ void print1DArray(size_t size, int array[size])
 
 void print2DArray(size_t row, size_t col, int array[row][col])
 {
-   // output contents of array
+   // 輸出陣列內容
    for (size_t i = 0; i < row; ++i) {
       for (size_t j = 0; j < col; ++j) {
          printf("%5d", array[i][j]);
@@ -78,20 +79,4 @@ void print2DArray(size_t row, size_t col, int array[row][col])
 
       puts("");
    } 
-} 
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+}

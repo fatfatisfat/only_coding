@@ -1,11 +1,11 @@
 // Fig. 6.11: fig06_11.c
-// Static arrays are initialized to zero if not explicitly initialized.
+// 靜態陣列若未明確初始化，會自動初始化為零。
 #include <stdio.h>
 
-void staticArrayInit(void); // function prototype
-void automaticArrayInit(void); // function prototype
+void staticArrayInit(void); // 函式原型宣告
+void automaticArrayInit(void); // 函式原型宣告
 
-// function main begins program execution
+// 主程式開始執行
 int main(void)
 {
    puts("First call to each function:");
@@ -17,62 +17,44 @@ int main(void)
    automaticArrayInit();
 }
  
-// function to demonstrate a static local array
+// 示範靜態本機陣列的函式
 void staticArrayInit(void)
 {
-   // initializes elements to 0 before the function is called
+   // 在函式第一次被呼叫前，將元素初始化為 0，且在程式執行期間只初始化一次
    static int array1[3];
 
    puts("\nValues on entering staticArrayInit:");
 
-   // output contents of array1
+   // 輸出 array1 的內容
    for (size_t i = 0; i <= 2; ++i) {
       printf("array1[%u] = %d  ", i, array1[i]);
    } 
 
    puts("\nValues on exiting staticArrayInit:");
 
-   // modify and output contents of array1
+   // 修改並輸出 array1 的內容
    for (size_t i = 0; i <= 2; ++i) {
       printf("array1[%u] = %d  ", i, array1[i] += 5);
    } 
 } 
 
-// function to demonstrate an automatic local array
+// 示範自動本機陣列的函式
 void automaticArrayInit(void)
 {
-   // initializes elements each time function is called
+   // 每次呼叫函式時，都會重新將元素初始化
    int array2[3] = { 1, 2, 3 };
 
    puts("\n\nValues on entering automaticArrayInit:");
 
-   // output contents of array2
+   // 輸出 array2 的內容
    for (size_t i = 0; i <= 2; ++i) {
       printf("array2[%u] = %d  ", i, array2[i]);
    } 
 
    puts("\nValues on exiting automaticArrayInit:");
 
-   // modify and output contents of array2
+   // 修改並輸出 array2 的內容
    for (size_t i = 0; i <= 2; ++i) {
       printf("array2[%u] = %d  ", i, array2[i] += 5);
    } 
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+}

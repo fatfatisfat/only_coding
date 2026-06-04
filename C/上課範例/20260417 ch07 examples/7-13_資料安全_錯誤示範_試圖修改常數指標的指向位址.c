@@ -1,33 +1,16 @@
 // Fig. 7.13: fig07_13.c
-// Attempting to modify a constant pointer to non-constant data.
+// 嘗試修改指向非常數資料的常數指標。
 #include <stdio.h>
 
 int main(void)
 {
-   int x; // define x
-   int y; // define y
+   int x; // 宣告 x
+   int y; // 宣告 y
 
-   // ptr is a constant pointer to an integer that can be modified     
-   // through ptr, but ptr always points to the same memory location
+   // ptr 是一個常數指標，指向一個可以被修改的整數。
+   // 我們可以透過 ptr 修改該整數的值，但 ptr 永遠只能指向同一個記憶體位置
    int * const ptr = &x;                                               
 
-   *ptr = 7; // allowed: *ptr is not const
-   ptr = &y; // error: ptr is const; cannot assign new address
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+   *ptr = 7; // 允許：*ptr 不是常數
+   ptr = &y; // 錯誤：ptr 是常數，無法賦予新位址
+}

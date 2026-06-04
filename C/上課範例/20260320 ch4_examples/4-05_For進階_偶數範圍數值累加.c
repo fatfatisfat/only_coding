@@ -1,32 +1,15 @@
 // Fig. 4.5: fig04_05.c  
-// Summation with for
+// 使用 for 迴圈進行累加運算
 #include <stdio.h>
 
 int main(void)
 {
-   unsigned int sum = 0; // initialize sum
+   unsigned int sum = 0; // 初始化總和變數
 
+   // 從 2 開始，每次增加 2，直到數值達到 100
    for (unsigned int number = 2; number <= 100; number += 2) {
-      sum += number; // add number to sum          
+      sum += number; // 將當前的偶數累加到 sum
    }
 
    printf("Sum is %u\n", sum); 
 }
-
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/

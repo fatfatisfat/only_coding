@@ -1,54 +1,35 @@
 // Fig. 5.4: fig05_04.c
-// Finding the maximum of three integers.
+// 找出三個整數中的最大值。
 #include <stdio.h>
 
-int maximum(int x, int y, int z); // function prototype
+int maximum(int x, int y, int z); // 函式原型宣告
 
 int main(void)
 {
-   int number1; // first integer entered by the user
-   int number2; // second integer entered by the user
-   int number3; // third integer entered by the user
+   int number1; // 使用者輸入的第一個整數
+   int number2; // 使用者輸入的第二個整數
+   int number3; // 使用者輸入的第三個整數
 
    printf("%s", "Enter three integers: ");
    scanf("%d%d%d", &number1, &number2, &number3);
    
-   // number1, number2 and number3 are arguments 
-   // to the maximum function call
+   // number1、number2 和 number3 是呼叫 maximum 函式時傳入的引數（Arguments）
    printf("Maximum is: %d\n", maximum(number1, number2, number3));
 } 
 
-// Function maximum definition                                      
-// x, y and z are parameters                                          
+// maximum 函式的定義                                      
+// x、y 和 z 是接收數值的參數（Parameters）                                           
 int maximum(int x, int y, int z)                                       
 {                                                                         
-   int max = x; // assume x is largest                            
-                                                                         
-   if (y > max) { // if y is larger than max,         
-      max = y; // assign y to max                           
+   int max = x; // 先假設 x 是最大的數值                            
+                                                                          
+   if (y > max) { // 如果 y 比目前的 max 還大，         
+      max = y; // 就把 y 賦值給 max                           
    }                                                           
-                                                                         
-   if (z > max) { // if z is larger than max,        
-      max = z; // assign z to max                      
+                                                                          
+   if (z > max) { // 如果 z 比目前的 max 還大，        
+      max = z; // 就把 z 賦值給 max                      
    }                                                         
                                                                           
-   return max; // max is largest value                            
+   return max; // 回傳最大值                            
 }
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-

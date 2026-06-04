@@ -1,35 +1,18 @@
 // Fig. 7.14: fig07_14.c
-// Attempting to modify a constant pointer to constant data.
+// 嘗試修改指向常數資料的常數指標。
 #include <stdio.h>
 
 int main(void)
 {
-   int x = 5; // initialize x
-   int y; // define y
+   int x = 5; // 初始化 x
+   int y; // 宣告 y
 
-   // ptr is a constant pointer to a constant integer. ptr always 
-   // points to the same location; the integer at that location
-   // cannot be modified
-   const int *const ptr = &x; // initialization is OK
-                                 
+   // ptr 是一個指向常數整數的常數指標。ptr 永遠只能
+   // 指向同一個記憶體位置，且該位置上的整數內容
+   // 也無法被修改
+   const int *const ptr = &x; // 初始化是正確的
+                                  
    printf("%d\n", *ptr);
-   *ptr = 7; // error: *ptr is const; cannot assign new value 
-   ptr = &y; // error: ptr is const; cannot assign new address
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+   *ptr = 7; // 錯誤：*ptr 是常數，無法賦予新數值
+   ptr = &y; // 錯誤：ptr 是常數，無法賦予新位址
+}

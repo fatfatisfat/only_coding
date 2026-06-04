@@ -1,10 +1,10 @@
 // Fig. 6.21: fig06_21.c
-// Initializing multidimensional arrays.
+// 初始化多維陣列。
 #include <stdio.h>
 
-void printArray(int a[][3]); // function prototype
+void printArray(int a[][3]); // 函式原型宣告
 
-// function main begins program execution
+// 主程式開始執行
 int main(void)
 {
    int array1[2][3] = { { 1, 2, 3 }, { 4, 5, 6 } };
@@ -20,33 +20,17 @@ int main(void)
    printArray(array3);
 }
 
-// function to output array with two rows and three columns
-void printArray(int a[][3])                         
-{                                                             
-   // loop through rows                                    
-   for (size_t i = 0; i <= 1; ++i) {                               
-                                                              
-      // output column values                              
+// 輸出兩列三行陣列內容的函式
+void printArray(int a[][3])                                 
+{                                                                                             
+   // 邏輯走訪每一列                                    
+   for (size_t i = 0; i <= 1; ++i) {                                                               
+                                                                                              
+      // 輸出該列中的每一行（行值）                              
       for (size_t j = 0; j <= 2; ++j) {                            
          printf("%d ", a[i][j]);                        
       }                                    
-                                                              
-      printf("\n"); // start new line of output          
+                                                                                              
+      printf("\n"); // 換行以輸出下一列          
    }                                       
-} 
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+}

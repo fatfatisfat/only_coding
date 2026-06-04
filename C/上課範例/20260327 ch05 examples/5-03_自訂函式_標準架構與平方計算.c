@@ -1,39 +1,21 @@
 // Fig. 5.3: fig05_03.c
-// Creating and using a programmer-defined function.
+// 建立與使用程式設計師自訂的函式。
 #include <stdio.h> 
 
-int square(int y); // function prototype
+int square(int y); // 函式原型宣告
 
 int main(void)
 {
-	// loop 10 times and calculate and output square of x each time
-	for (int x = 1; x <= 10; ++x) {
-		printf("%d  ", square(x)); // function call
-	}
+    // 執行 10 次迴圈，每次計算並輸出 x 的平方值
+    for (int x = 1; x <= 10; ++x) {
+        printf("%d  ", square(x)); // 呼叫函式
+    }
 
-	puts("");
+    puts("");
 }
 
-// square function definition returns the square of its parameter 
-int square(int y) // y is a copy of the argument to the function
+// square 函式的定義，回傳參數的平方值
+int square(int y) // y 是傳入該函式之引數的副本
 {
-	return y * y; // returns the square of y as an int              
+    return y * y; // 以整型（int）回傳 y 的平方值              
 }
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-

@@ -1,59 +1,40 @@
-// Fig. 3.10: fig03_10.c
-// Analysis of examination results 
+// Fig. 3.13: fig03_10.c
+// 考試結果分析程式
 #include <stdio.h>
 
-// function main begins program execution 
+// main 函式開始程式執行
 int main( void )
 {
-   // initialize variables in definitions 
-   unsigned int passes = 0; // number of passes   
-   unsigned int failures = 0; // number of failures 
-   unsigned int student = 1; // student counter    
-   int result; // one exam result 
+   // 在定義時初始化變數
+   unsigned int passes = 0;   // 及格人數
+   unsigned int failures = 0; // 不及格人數
+   unsigned int student = 1;  // 學生計數器
+   int result;                // 單一考試結果
 
-   // process 10 students using counter-controlled loop 
+   // 使用計數器控制的迴圈來處理 10 位學生的資料
    while ( student <= 10 ) {
 
-      // prompt user for input and obtain value from user 
+      // 提示使用者輸入並獲取數值
       printf( "%s", "Enter result ( 1=pass,2=fail ): " );
       scanf( "%d", &result );
 
-      // if result 1, increment passes 
-      if ( result == 1 ) {     
+      // 如果結果為 1，則增加及格人數
+      if ( result == 1 ) {    
          passes = passes + 1;
-      } // end if 
-      else { // otherwise, increment failures 
+      } // end if
+      else { // 否則，增加不及格人數
          failures = failures + 1;
-      } // end else 
+      } // end else
 
-      student = student + 1; // increment student counter  
-   } // end while 
+      student = student + 1; // 增加學生計數器
+   } // end while
 
-   // termination phase; display number of passes and failures 
+   // 終止階段：顯示及格與不及格的人數
    printf( "Passed %u\n", passes );
    printf( "Failed %u\n", failures );
 
-   // if more than eight students passed, print "Bonus to instructor!" 
+   // 如果有超過 8 位學生及格，列印 "Bonus to instructor!"
    if ( passes > 8 ) {
       puts( "Bonus to instructor!" );
-   } // end if 
-} // end function main 
-
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2013 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
-
+   } // end if
+} // end function main

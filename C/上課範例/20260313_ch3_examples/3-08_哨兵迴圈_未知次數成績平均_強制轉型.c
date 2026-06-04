@@ -1,63 +1,46 @@
 // Fig. 3.8: fig03_08.c
-// Class average program with sentinel-controlled iteration
+// 使用哨兵值控制迭代的班級平均成績程式
 #include <stdio.h>
 
-// function main begins program execution
+// main 函式開始程式執行
 int main( void )
 {
-   unsigned int counter; // number of grades entered
-   int grade; // grade value
-   int total; // sum of grades
+   unsigned int counter; // 已輸入成績的數量
+   int grade; // 成績數值
+   int total; // 成績總和
 
-   float average; // number with decimal point for average
+   float average; // 用於儲存平均值（帶有小數點）
    
-   // initialization phase
-   total = 0; // initialize total
-   counter = 0; // initialize loop counter
+   // 初始化階段
+   total = 0; // 初始化總和
+   counter = 0; // 初始化迴圈計數器
    
-   // processing phase
-   // get first grade from user
-   printf( "%s", "Enter grade, -1 to end: " ); // prompt for input
-   scanf( "%d", &grade ); // read grade from user
+   // 處理階段
+   // 從使用者獲取第一個成績
+   printf( "%s", "Enter grade, -1 to end: " ); // 提示輸入
+   scanf( "%d", &grade ); // 讀取使用者輸入的成績
    
-   // loop while sentinel value not yet read from user
+   // 當輸入的值不是哨兵值時，執行迴圈
    while ( grade != -1 ) {
-      total = total + grade; // add grade to total
-      counter = counter + 1; // increment counter
+      total = total + grade; // 將成績加入總和
+      counter = counter + 1; // 累加計數器
       
-      // get next grade from user
-      printf( "%s", "Enter grade, -1 to end: " ); // prompt for input
-      scanf("%d", &grade); // read next grade                  
-   } // end while
+      // 從使用者獲取下一個成績
+      printf( "%s", "Enter grade, -1 to end: " ); // 提示輸入
+      scanf("%d", &grade); // 讀取下一個成績               
+   } // while 迴圈結束
 
-   // termination phase
-   // if user entered at least one grade
+   // 終止階段
+   // 如果使用者至少輸入了一個成績
    if ( counter != 0 ) {
 
-      // calculate average of all grades entered
-      average = ( float ) total / counter; // avoid truncation
+      // 計算所有輸入成績的平均值
+      average = ( float ) total / counter; // 強制轉型以避免整數除法造成的截斷誤差
 
-      // display average with two digits of precision
+      // 顯示平均值，並設定精確度至小數點後兩位
       printf( "Class average is %.2f\n", average );   
-   } // end if   
-   else { // if no grades were entered, output message
+   } // if 判斷結束
+   else { // 如果沒有輸入任何成績，輸出提示訊息
       puts( "No grades were entered" );
-   } // end else
-} // end function main
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2013 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+   } // else 結束
+} // main 函式結束

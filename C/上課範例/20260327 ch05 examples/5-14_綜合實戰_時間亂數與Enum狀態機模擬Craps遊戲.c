@@ -1,95 +1,78 @@
 // Fig. 5.14: fig05_14.c
-// Simulating the game of craps.
+// 模擬 Craps（雙骰子）遊戲。
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> // contains prototype for function time
+#include <time.h> // 包含 time 函式的原型宣告
 
-// enumeration constants represent game status
+// 使用列舉常數代表遊戲狀態
 enum Status { CONTINUE, WON, LOST };
 
-int rollDice(void); // function prototype
+int rollDice(void); // 函式原型宣告
 
 int main(void)
 { 
-   // randomize random number generator using current time
+   // 使用目前時間作為隨機數產生器的種子（隨機化）
    srand(time(NULL));
 
-   int myPoint; // player must make this point to win
-   enum Status gameStatus; // can contain CONTINUE, WON, or LOST
-   int sum = rollDice(); // first roll of the dice
+   int myPoint; // 玩家必須再次擲出這個點數（點數要相同）才能獲勝
+   enum Status gameStatus; // 可包含 CONTINUE、WON 或 LOST
+   int sum = rollDice(); // 第一次擲骰子
 
-   // determine game status based on sum of dice
+   // 根據第一次擲出的點數總和決定遊戲狀態
    switch(sum) {
 
-      // win on first roll
-      case 7: // 7 is a winner
-      case 11: // 11 is a winner          
+      // 第一回合直接獲勝
+      case 7: // 7 點獲勝
+      case 11: // 11 點獲勝          
          gameStatus = WON; 
          break;
 
-      // lose on first roll
-      case 2: // 2 is a loser
-      case 3: // 3 is a loser
-      case 12: // 12 is a loser
+      // 第一回合直接輸掉
+      case 2: // 2 點輸
+      case 3: // 3 點輸
+      case 12: // 12 點輸
          gameStatus = LOST; 
          break;
 
-      // remember point
+      // 記住點數，進入後續回合
       default:                  
-         gameStatus = CONTINUE; // player should keep rolling
-         myPoint = sum; // remember the point
+         gameStatus = CONTINUE; // 玩家必須繼續擲骰子
+         myPoint = sum; // 記住這個點數（成為設定點數）
          printf("Point is %d\n", myPoint);
-         break; // optional
+         break; // 可選的（編譯良好習慣）
    } 
 
-   // while game not complete
-   while (CONTINUE == gameStatus) { // player should keep rolling
-      sum = rollDice(); // roll dice again
+   // 當遊戲尚未結束時
+   while (CONTINUE == gameStatus) { // 玩家必須繼續擲骰子
+      sum = rollDice(); // 再次擲骰子
 
-      // determine game status
-      if (sum == myPoint) { // win by making point
+      // 判斷遊戲狀態
+      if (sum == myPoint) { // 擲出與設定點數相同的點數，獲勝
          gameStatus = WON; 
       } 
       else {
-         if (7 == sum) { // lose by rolling 7
+         if (7 == sum) { // 在擲出設定點數前先擲出 7 點，判定落敗
             gameStatus = LOST; 
          } 
       } 
    }
 
-   // display won or lost message
-   if (WON == gameStatus) { // did player win?
+   // 顯示獲勝或落敗的訊息
+   if (WON == gameStatus) { // 玩家贏了嗎？
       puts("Player wins");
    } 
-   else { // player lost
+   else { // 玩家輸了
       puts("Player loses");
    } 
 } 
 
-// roll dice, calculate sum and display results
+// 模擬擲骰子、計算總和並顯示結果的函式
 int rollDice(void)
 {
-   int die1 = 1 + (rand() % 6); // pick random die1 value
-   int die2 = 1 + (rand() % 6); // pick random die2 value
+   int die1 = 1 + (rand() % 6); // 隨機取得第一顆骰子點數（1-6）
+   int die2 = 1 + (rand() % 6); // 隨機取得第二顆骰子點數（1-6）
 
-   // display results of this roll
+   // 顯示這一回合擲骰子的結果
    printf("Player rolled %d + %d = %d\n", die1, die2, die1 + die2);
-   return die1 + die2; // return sum of dice
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+   return die1 + die2; // 回傳兩顆骰子的點數總和
+}
