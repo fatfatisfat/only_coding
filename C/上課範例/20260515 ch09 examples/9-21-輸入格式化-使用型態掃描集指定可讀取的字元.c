@@ -1,31 +1,14 @@
-// Fig. 9.21: fig09_21.c
-// Using a scan set
+// 圖 9.21: fig09_21.c
+// 使用掃描字元集 (scan set)
 #include <stdio.h>
 
-// function main begins program execution
+// 主函式 main 開始執行程式
 int main(void)
 { 
-   char z[9]; // define array z
+   char z[9]; // 宣告字元陣列 z
    
-   printf("%s", "Enter string: ");
-   scanf("%8[aeiou]", z); // search for set of characters
+   printf("%s", "請輸入一個字串: ");
+   scanf("%8[aeiou]", z); // 搜尋並讀取指定的字元集合（僅接受 a, e, i, o, u）
 
-   printf("The input was \"%s\"\n", z);
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+   printf("輸入的字串為 \"%s\"\n", z);
+}

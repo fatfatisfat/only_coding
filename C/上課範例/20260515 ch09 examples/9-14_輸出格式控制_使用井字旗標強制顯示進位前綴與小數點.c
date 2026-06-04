@@ -1,32 +1,16 @@
-// Fig. 9.14: fig09_14.c
-// Using the # flag with conversion specifiers 
-// o, x, X and any floating-point specifier
+// 圖 9.14: fig09_14.c
+// 在格式指定字 o, x, X 以及任何浮點數指定字
+// 中使用 # 旗標
 #include <stdio.h>
 
 int main(void)
 { 
-   int c = 1427; // initialize c   
-   printf("%#o\n", c);
-   printf("%#x\n", c);
-   printf("%#X\n", c);
+   int c = 1427; // 初始化 c   
+   printf("%#o\n", c); // 強制加上八進位前綴 0
+   printf("%#x\n", c); // 強制加上十六進位前綴 0x
+   printf("%#X\n", c); // 強制加上十六進位前綴 0X
 
-   double p = 1427.0; // initialize p
-   printf("\n%g\n", p);
-   printf("%#g\n", p);
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+   double p = 1427.0; // 初始化 p
+   printf("\n%g\n", p);   // 一般輸出（會自動省略結尾的小數點與零）
+   printf("%#g\n", p);  // 強制保留小數點與後續的零
+}

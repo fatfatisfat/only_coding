@@ -1,31 +1,16 @@
-// Fig. 8.22: fig08_22.c
-// Using function strpbrk
+// 圖 8.22: fig08_22.c
+// 使用 strpbrk 函式
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 { 
-   const char *string1 = "This is a test"; // initialize char pointer
-   const char *string2 = "beware"; // initialize char pointer
+   const char *string1 = "This is a test"; // 初始化字元指標
+   const char *string2 = "beware"; // 初始化字元指標
    
+   // 尋找 string2 中的字元在 string1 中最先出現者（此處為 'e'）
    printf("%s\"%s\"\n'%c'%s\n\"%s\"\n", 
-      "Of the characters in ", string2,
+      "在這些字元當中：", string2,
       *strpbrk(string1, string2),
-      " appears earliest in ", string1);
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+      " 最早出現於字串：", string1);
+}

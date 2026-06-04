@@ -1,5 +1,5 @@
-// Fig. 9.20: fig09_20.c
-// Reading characters and strings
+// 圖 9.20: fig09_20.c
+// 讀取字元與字串
 #include <stdio.h>
 
 int main(void)
@@ -7,27 +7,9 @@ int main(void)
    char x;      
    char y[9]; 
    
-   printf("%s", "Enter a string: ");
-   scanf("%c%8s", &x, y);
+   printf("%s", "請輸入一個字串: ");
+   scanf("%c%8s", &x, y); // 讀取第一個字元存入 x，隨後的連續字串存入 y
 
-   puts("The input was:");
-   printf("the character \"%c\" and the string \"%s\"\n", x, y);
-} 
-
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+   puts("輸入的結果為：");
+   printf("字元為 \"%c\" 且字串為 \"%s\"\n", x, y);
+}

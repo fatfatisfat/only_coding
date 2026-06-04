@@ -1,33 +1,18 @@
-// Fig. 8.23: fig08_23.c
-// Using function strrchr
+// 圖 8.23: fig08_23.c
+// 使用 strrchr 函式
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 { 
-   // initialize char pointer
+   // 初始化字元指標
    const char *string1 = "A zoo has many animals including zebras";
           
-   int c = 'z'; // character to search for
+   int c = 'z'; // 要搜尋的字元
    
+   // 尋找字元 'z' 最後一次出現的位置（即 zebras 的 z），並印出其後的剩餘字串
    printf("%s\n%s'%c'%s\"%s\"\n",
-      "The remainder of string1 beginning with the",
-      "last occurrence of character ", c,
-      " is: ", strrchr(string1, c));
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+      "從最後一次出現該字元的位置開始，string1 的剩餘部分為：",
+      "最後一次出現字元 ", c,
+      " 的位置是：", strrchr(string1, c));
+}

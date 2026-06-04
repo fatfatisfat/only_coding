@@ -1,48 +1,31 @@
-// Fig. 8.20: fig08_20.c
-// Using function strchr
+// 圖 8.20: fig08_20.c
+// 使用 strchr 函式
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 {
-   const char *string = "This is a test"; // initialize char pointer 
-   char character1 = 'a'; // initialize character1
-   char character2 = 'z'; // initialize character2
+   const char *string = "This is a test"; // 初始化字元指標 
+   char character1 = 'a'; // 初始化 character1
+   char character2 = 'z'; // 初始化 character2
    
-   // if character1 was found in string
+   // 如果在字串中找到 character1
    if (strchr(string, character1) != NULL) {
-      printf("\'%c\' was found in \"%s\".\n", 
-         character1, string);
+      printf("在 \"%s\" 中找到了 '%c'。\n", 
+         string, character1);
    } 
-   else { // if character1 was not found
-      printf("\'%c\' was not found in \"%s\".\n", 
-         character1, string);
+   else { // 如果找不到 character1
+      printf("在 \"%s\" 中找不到 '%c'。\n", 
+         string, character1);
    } 
 
-   // if character2 was found in string
+   // 如果在字串中找到 character2
    if (strchr(string, character2) != NULL) {
-      printf("\'%c\' was found in \"%s\".\n", 
-         character2, string);
+      printf("在 \"%s\" 中找到了 '%c'。\n", 
+         string, character2);
    } 
-   else { // if character2 was not found
-      printf("\'%c\' was not found in \"%s\".\n", 
-         character2, string);
+   else { // 如果找不到 character2
+      printf("在 \"%s\" 中找不到 '%c'。\n", 
+         string, character2);
    } 
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

@@ -1,26 +1,10 @@
-// Fig. 9.13: fig09_13.c
-// Using the space flag
-// not preceded by + or -
+// 圖 9.13: fig09_13.c
+// 使用空格旗標 (space flag)
+// 且該數值前面不帶有 + 或 - 符號
 #include <stdio.h>
 
 int main(void)
 { 
+   // 正數 547 前方會自動留一個空格，以便與負數的負號 '-' 對齊
    printf("% d\n% d\n", 547, -547);
-} 
-
- 
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

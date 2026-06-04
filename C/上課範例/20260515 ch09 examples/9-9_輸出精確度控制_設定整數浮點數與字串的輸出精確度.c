@@ -1,34 +1,18 @@
-// Fig. 9.9: fig09_09.c
-// Printing integers, floating-point numbers and strings with precisions
+// 圖 9.9: fig09_09.c
+// 使用精確度 (precision) 來列印整數、浮點數與字串
 #include <stdio.h>
 
 int main(void)
 {
-    puts("Using precision for integers");
-    int i = 873; // initialize int i
-    printf("\t%.4d\n\t%.9d\n\n", i, i);
-    
-    puts("Using precision for floating-point numbers");
-    double f = 123.94536; // initialize double f
-    printf("\t%.3f\n\t%.3e\n\t%.3g\n\n", f, f, f);
-    
-    puts("Using precision for strings");
-    char s[] = "Happy Birthday"; // initialize char array s
-    printf("\t%.11s\n", s);
+   puts("對整數使用精確度（設定最少輸出位數，不足則補 0）");
+   int i = 873; // 初始化整數 i
+   printf("\t%.4d\n\t%.9d\n\n", i, i);
+   
+   puts("對浮點數使用精確度（控制小數位數或有效位數）");
+   double f = 123.94536; // 初始化倍精確度浮點數 f
+   printf("\t%.3f\n\t%.3e\n\t%.3g\n\n", f, f, f);
+   
+   puts("對字串使用精確度（控制最大輸出字元數）");
+   char s[] = "Happy Birthday"; // 初始化字元陣列 s
+   printf("\t%.11s\n", s);
 }
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/

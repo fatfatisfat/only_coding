@@ -1,34 +1,18 @@
-// Fig. 9.19: fig09_19.c
-// Reading input with floating-point conversion specifiers
+// 圖 9.19: fig09_19.c
+// 使用浮點數格式指定字讀取輸入資料
 #include <stdio.h>
 
-// function main begins program execution
+// 主函式 main 開始執行程式
 int main(void)
 { 
    double a;
    double b;
    double c;
 
-   puts("Enter three floating-point numbers:");
+   puts("請輸入三個浮點數：");
    scanf("%le%lf%lg", &a, &b, &c);
 
-   printf("\nHere are the numbers entered in plain");
-   puts("floating-point notation:");
+   printf("\n以下是依據一般浮點數記數法");
+   puts("所印出的輸入數值：");
    printf("%f\n%f\n%f\n", a, b, c);
-} 
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

@@ -1,33 +1,16 @@
-// Fig. 8.30: fig08_30.c
-// Using function memcmp
+// 圖 8.30: fig08_30.c
+// 使用 memcmp 函式
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 { 
-   char s1[] = "ABCDEFG"; // initialize char array s1
-   char s2[] = "ABCDXYZ"; // initialize char array s2
+   char s1[] = "ABCDEFG"; // 初始化字元陣列 s1
+   char s2[] = "ABCDXYZ"; // 初始化字元陣列 s2
         
    printf("%s%s\n%s%s\n\n%s%2d\n%s%2d\n%s%2d\n",
       "s1 = ", s1, "s2 = ", s2,
-      "memcmp(s1, s2, 4) = ", memcmp(s1, s2, 4),
-      "memcmp(s1, s2, 7) = ", memcmp(s1, s2, 7),
-      "memcmp(s2, s1, 7) = ", memcmp(s2, s1, 7));
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+      "memcmp(s1, s2, 4) = ", memcmp(s1, s2, 4),  // 前 4 個位元組皆為 "ABCD"，相同故回傳 0
+      "memcmp(s1, s2, 7) = ", memcmp(s1, s2, 7),  // 比較 7 個位元組，'E' 的 ASCII 碼小於 'X'，回傳負值
+      "memcmp(s2, s1, 7) = ", memcmp(s2, s1, 7)); // 比較 7 個位元組，'X' 的 ASCII 碼大於 'E'，回傳正值
+}

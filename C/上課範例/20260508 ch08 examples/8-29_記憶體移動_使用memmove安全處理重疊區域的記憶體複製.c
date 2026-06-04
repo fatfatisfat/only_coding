@@ -1,30 +1,13 @@
-// Fig. 8.29: fig08_29.c
-// Using function memmove
+// 圖 8.29: fig08_29.c
+// 使用 memmove 函式
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 { 
-   char x[] = "Home Sweet Home"; // initialize char array x
+   char x[] = "Home Sweet Home"; // 初始化字元陣列 x
    
-   printf("%s%s\n", "The string in array x before memmove is: ", x); 
-   printf("%s%s\n", "The string in array x after memmove is: ", 
-      (char *) memmove(x, &x[5], 10)); 
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+   printf("%s%s\n", "執行 memmove 前，陣列 x 中的字串為：", x); 
+   printf("%s%s\n", "執行 memmove 後，陣列 x 中的字串為：", 
+      (char *) memmove(x, &x[5], 10)); // 將從 x[5] 開始的 10 個位元組安全地複製到 x 的開頭
+}

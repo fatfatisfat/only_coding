@@ -1,34 +1,16 @@
-// Fig. 8.25: fig08_25.c
-// Using function strstr
+// 圖 8.25: fig08_25.c
+// 使用 strstr 函式
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 { 
-   const char *string1 = "abcdefabcdef"; // string to search
-   const char *string2 = "def"; // string to search for
+   const char *string1 = "abcdefabcdef"; // 被搜尋的主字串
+   const char *string2 = "def"; // 要尋找的子字串
 
    printf("%s%s\n%s%s\n\n%s\n%s%s\n",
       "string1 = ", string1, "string2 = ", string2,
-      "The remainder of string1 beginning with the",
-      "first occurrence of string2 is: ", 
-      strstr(string1, string2));
-} 
-
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+      "從第一次出現 string2 的位置開始，",
+      "string1 的剩餘部分為：", 
+      strstr(string1, string2)); // 尋找 "def" 第一次出現的位置並印出其後字串
+}

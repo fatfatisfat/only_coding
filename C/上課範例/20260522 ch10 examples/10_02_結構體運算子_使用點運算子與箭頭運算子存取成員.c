@@ -1,44 +1,26 @@
-// Fig. 10.2: fig10_02.c
-// Structure member operator and 
-// structure pointer operator
+// 圖 10.2: fig10_02.c
+// 結構成員運算子（.）與
+// 結構指標運算子（->）
 #include <stdio.h>
 
-// card structure definition            
+// 定義撲克牌結構 (card structure)            
 struct card {                           
-   char *face; // define pointer face   
-   char *suit; // define pointer suit   
+   char *face; // 定義點數指標（如 Ace）   
+   char *suit; // 定義花色指標（如 Spades）   
 }; 
 
 int main(void)
 { 
-   struct card aCard; // define one struct card variable   
+   struct card aCard; // 宣告一個 struct card 型態的變數   
 
-   // place strings into aCard
+   // 將字串常數賦值給 aCard 的成員
    aCard.face = "Ace";   
    aCard.suit = "Spades";
 
-   struct card *cardPtr = &aCard; // assign address of aCard to cardPtr
+   struct card *cardPtr = &aCard; // 將 aCard 的記憶體地址指定給指標 cardPtr
 
+   // 分別使用：結構變數、指標運算子、以及對指標取值後的變數來印出內容
    printf("%s%s%s\n%s%s%s\n%s%s%s\n", aCard.face, " of ", aCard.suit,
-      cardPtr->face, " of ", cardPtr->suit,                           
+      cardPtr->face, " of ", cardPtr->suit,                                   
       (*cardPtr).face, " of ", (*cardPtr).suit);                 
-} 
-
-
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

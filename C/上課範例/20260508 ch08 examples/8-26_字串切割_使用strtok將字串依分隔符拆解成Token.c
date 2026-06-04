@@ -1,39 +1,22 @@
-// Fig. 8.26: fig08_26.c
-// Using function strtok
+// 圖 8.26: fig08_26.c
+// 使用 strtok 函式
 #include <stdio.h>
 #include <string.h>
 
 int main(void)
 { 
-   // initialize array string
+   // 初始化字串陣列
    char string[] = "This is a sentence with 7 tokens";
    
    printf("%s\n%s\n\n%s\n",
-      "The string to be tokenized is:", string, 
-      "The tokens are:");
+      "準備進行分割的字串為：", string, 
+      "分割後的標記 (tokens) 為：");
       
-   char *tokenPtr = strtok(string, " "); // begin tokenizing sentence
+   char *tokenPtr = strtok(string, " "); // 開始切分字串（以空格作為分隔符號）
 
-   // continue tokenizing sentence until tokenPtr becomes NULL
+   // 持續切分字串，直到 tokenPtr 變成 NULL 為止
    while (tokenPtr != NULL) { 
       printf("%s\n", tokenPtr);
-      tokenPtr = strtok(NULL, " "); // get next token
+      tokenPtr = strtok(NULL, " "); // 取得下一個標記（傳入 NULL 代表沿用原字串）
    } 
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

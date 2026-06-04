@@ -1,5 +1,5 @@
-// Fig. 10.3: fig10_03.c
-// Card shuffling and dealing program using structures
+// 圖 10.3: fig10_03.c
+// 使用結構 (structures) 的撲克牌洗牌與發牌程式
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -7,15 +7,15 @@
 #define CARDS 52
 #define FACES 13
 
-// card structure definition                  
+// 定義撲克牌結構 (card structure)                  
 struct card {                                 
-   const char *face; // define pointer face   
-   const char *suit; // define pointer suit   
+   const char *face; // 定義點數指標（如 Ace, Deuce 等）   
+   const char *suit; // 定義花色指標（如 Hearts, Diamonds 等）   
 }; 
 
-typedef struct card Card; // new type name for struct card   
+typedef struct card Card; // 為 struct card 定義新的型態名稱 Card   
 
-// prototypes
+// 函式原型宣告
 void fillDeck(Card * const wDeck, const char * wFace[], 
    const char * wSuit[]);
 void shuffle(Card * const wDeck);
@@ -23,38 +23,38 @@ void deal(const Card * const wDeck);
 
 int main(void)
 { 
-   Card deck[CARDS]; // define array of Cards
+   Card deck[CARDS]; // 宣告 Card 型態的陣列（一副牌）
 
-   // initialize array of pointers
+   // 初始化點數指標陣列
    const char *face[] = { "Ace", "Deuce", "Three", "Four", "Five",
       "Six", "Seven", "Eight", "Nine", "Ten",
       "Jack", "Queen", "King"};
 
-   // initialize array of pointers
+   // 初始化花色指標陣列
    const char *suit[] = { "Hearts", "Diamonds", "Clubs", "Spades"};
 
-   srand(time(NULL)); // randomize
+   srand(time(NULL)); // 設定隨機種子
 
-   fillDeck(deck, face, suit); // load the deck with Cards
-   shuffle(deck); // put Cards in random order
-   deal(deck); // deal all 52 Cards
+   fillDeck(deck, face, suit); // 將撲克牌填入牌組中
+   shuffle(deck); // 將撲克牌隨機洗牌
+   deal(deck); // 發放全部 52 張牌
 } 
 
-// place strings into Card structures
+// 將字串填入 Card 結構中（初始化整副牌）
 void fillDeck(Card * const wDeck, const char * wFace[], 
    const char * wSuit[])
 { 
-   // loop through wDeck
+   // 巡覽整個牌組 (wDeck)
    for (size_t i = 0; i < CARDS; ++i) { 
       wDeck[i].face = wFace[i % FACES];
       wDeck[i].suit = wSuit[i / FACES];
    } 
 } 
 
-// shuffle cards
+// 洗牌函式
 void shuffle(Card * const wDeck)
 { 
-   // loop through wDeck randomly swapping Cards
+   // 巡覽牌組並隨機交換撲克牌位置
    for (size_t i = 0; i < CARDS; ++i) { 
       size_t j = rand() % CARDS;
       Card temp = wDeck[i];      
@@ -63,29 +63,12 @@ void shuffle(Card * const wDeck)
    } 
 } 
 
-// deal cards
+// 發牌函式
 void deal(const Card * const wDeck)
 { 
-   // loop through wDeck
+   // 巡覽整副牌並印出結果
    for (size_t i = 0; i < CARDS; ++i) {
       printf("%5s of %-8s%s", wDeck[i].face, wDeck[i].suit,
          (i + 1) % 4 ? "  " : "\n");
    } 
-} 
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}

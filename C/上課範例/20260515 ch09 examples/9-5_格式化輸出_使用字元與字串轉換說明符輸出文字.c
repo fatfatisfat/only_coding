@@ -1,35 +1,17 @@
-// Fig. 9.5: fig09_05c
-// Using the character and string conversion specifiers
+// 圖 9.5: fig09_05.c
+// 使用字元與字串格式指定字
 #include <stdio.h>
 
 int main(void)
 { 
-   char character = 'A'; // initialize char
+   char character = 'A'; // 初始化字元
    printf("%c\n", character);
 
-   printf("%s\n", "This is a string");
+   printf("%s\n", "這是一個字串常數");
 
-   char string[] = "This is a string"; // initialize char array
+   char string[] = "這是一個字元陣列字串"; // 初始化字元陣列
    printf("%s\n", string);
 
-   const char *stringPtr = "This is also a string"; // char pointer
+   const char *stringPtr = "這也是一個指標字串"; // 初始化字元指標
    printf("%s\n", stringPtr);
-} 
-
-
-
-
-/**************************************************************************
- * (C) Copyright 1992-2015 by Deitel & Associates, Inc. and               *
- * Pearson Education, Inc. All Rights Reserved.                           *
- *                                                                        *
- * DISCLAIMER: The authors and publisher of this book have used their     *
- * best efforts in preparing the book. These efforts include the          *
- * development, research, and testing of the theories and programs        *
- * to determine their effectiveness. The authors and publisher make       *
- * no warranty of any kind, expressed or implied, with regard to these    *
- * programs or to the documentation contained in these books. The authors *
- * and publisher shall not be liable in any event for incidental or       *
- * consequential damages in connection with, or arising out of, the       *
- * furnishing, performance, or use of these programs.                     *
- *************************************************************************/
+}
