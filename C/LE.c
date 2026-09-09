@@ -2,29 +2,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// ©w¸q«È¤á¸ê®Æµ²ºcÅé (clientData)         
+// å®šç¾©å“¡å·¥çµæ§‹</th> (clientData)         
 struct clientData {
-    int num;        // ½s¸¹
-    char name[15];  // ©m¦W     
-    double work;    // ¤u§@ÁZ®Ä   
-    double appear;  // ¥X¶ÔÁZ®Ä            
+    int num;        // ç·¨è™Ÿ
+    char name[15];  // å§“å     
+    double work;    // å·¥ä½œåˆ†æ•¸   
+    double appear;  // å‡ºå¸­åˆ†æ•¸            
 };
 
 int enterChoice(void)
 {
-    // ¿é¥X¿ï³æ¶µ¥Ø
+    // è¼¸å‡ºé¸å–®åŠŸèƒ½
     printf("%s", "\nEnter your choice\n"
-        "1. ¿é¤J­û¤uÁZ®Ä\n"
-        "2. Åã¥Ü©Ò¦³­û¤uÁZ®Ä\n"
-        "3. Åã¥Ü¥­§¡ÁZ®Ä\n"
-        "4. Åã¥Ü¤u§@°ª©ó¥­§¡ÁZ®Ä­û¤u\n"
-        "5. Åã¥Ü¥X¶Ô°ª©ó¥­§¡ÁZ®Ä­û¤u\n"
-        "0. Â÷¶}¨t²Î\n"
-        "½Ğ¿ï¾Ü: ");
+        "1. è¼¸å…¥å“¡å·¥åˆ†æ•¸\n"
+        "2. é¡¯ç¤ºæ‰€æœ‰å“¡å·¥åˆ†æ•¸\n"
+        "3. é¡¯ç¤ºå¹³å‡åˆ†æ•¸\n"
+        "4. é¡¯ç¤ºå·¥ä½œé«˜æ–¼å¹³å‡åˆ†æ•¸ä¹‹å“¡å·¥\n"
+        "5. é¡¯ç¤ºå‡ºå¸­é«˜æ–¼å¹³å‡åˆ†æ•¸ä¹‹å“¡å·¥\n"
+        "0. é›¢é–‹ç³»çµ±\n"
+        "è«‹é¸æ“‡: ");
 
-    int menuChoice; // Àx¦s¨Ï¥ÎªÌ¿é¤JªºÅÜ¼Æ
+    int menuChoice; // å„²å­˜ä½¿ç”¨è€…è¼¸å…¥è®Šæ•¸
     if (scanf("%d", &menuChoice) != 1) {
-        // ¨¾¤î¨Ï¥ÎªÌ¿é¤J«D¼Æ¦r¾É­P¦º°j°é
+        // è™•ç†ä½¿ç”¨è€…è¼¸å…¥éæ•¸å­—æ™‚çš„ç„¡çª®è¿´åœˆ
         while (getchar() != '\n');
         return -1;
     }
@@ -33,7 +33,7 @@ int enterChoice(void)
 
 int main() {
     puts("=======================================================");
-    puts("            ­û¤u¤u§@»P¥X¶ÔÁZ®ÄºŞ²z¨t²Î");
+    puts("             å“¡å·¥å·¥ä½œèˆ‡å‡ºå¸­åˆ†æ•¸ç®¡ç†ç³»çµ±");
     puts("=======================================================");
 
     int choice;
@@ -47,35 +47,35 @@ int main() {
 
     while ((choice = enterChoice()) != 0) {
         if (choice == -1) {
-            puts("µL®Äªº¿é¤J¡A½Ğ¿é¤J¼Æ¦r¡I");
+            puts("ç„¡æ•ˆçš„è¼¸å…¥ï¼Œè«‹è¼¸å…¥æ•¸å­—ï¼");
             continue;
         }
 
         if (choice == 1) {
-            printf("¿é¤JÁZ®ÄÀÉ®×¦WºÙ: ");
+            printf("è¼¸å…¥è³‡æ–™æª”æ¡ˆåç¨±: ");
             scanf("%19s", file_name);
             printf("\n");
 
             if ((cfptr = fopen(file_name, "w")) == NULL) {
-                puts("µLªk¶}±Ò©Î«Ø¥ßÀÉ®×");
+                puts("ç„¡æ³•é–‹å•Ÿæˆ–å»ºç«‹æª”æ¡ˆ");
             }
             else {
                 char c = 'y';
                 while (c == 'y' || c == 'Y') {
                     struct clientData member;
 
-                    printf("¿é¤J­û¤u½s¸¹: ");
+                    printf("è¼¸å…¥å“¡å·¥ç·¨è™Ÿ: ");
                     scanf("%d", &member.num);
-                    printf("¿é¤J­û¤u©m¦W: ");
+                    printf("è¼¸å…¥å“¡å·¥å§“å: ");
                     scanf("%14s", member.name);
-                    printf("¿é¤J¤u§@ÁZ®Ä: ");
+                    printf("è¼¸å…¥å·¥ä½œåˆ†æ•¸: ");
                     scanf("%lf", &member.work);
-                    printf("¿é¤J¥X®uÁZ®Ä: ");
+                    printf("è¼¸å…¥å‡ºå¸­åˆ†æ•¸: ");
                     scanf("%lf", &member.appear);
 
                     fprintf(cfptr, "%d %s %.2f %.2f\n", member.num, member.name, member.work, member.appear);
 
-                    printf("¬O§_Ä~Äò¿é¤J(y/n): ");
+                    printf("æ˜¯å¦ç¹¼çºŒè¼¸å…¥(y/n): ");
                     scanf(" %c", &c);
                     printf("\n");
                 }
@@ -83,16 +83,16 @@ int main() {
             }
         }
         else if (choice == 2) {
-            printf("¿é¤JÁZ®ÄÀÉ®×¦WºÙ: ");
+            printf("è¼¸å…¥è³‡æ–™æª”æ¡ˆåç¨±: ");
             scanf("%19s", file_name);
             printf("\n");
 
             if ((cfptr = fopen(file_name, "r")) == NULL) {
-                puts("§ä¤£¨ìÀÉ®×");
+                puts("æ‰¾ä¸åˆ°æª”æ¡ˆ");
             }
             else {
                 puts("=======================================================");
-                puts("½s¸¹      ©m¦W       ¤u§@ÁZ®Ä       ¥X®uÁZ®Ä");
+                puts("ç·¨è™Ÿ       å§“å         å·¥ä½œåˆ†æ•¸       å‡ºå¸­åˆ†æ•¸");
                 puts("=======================================================");
 
                 while (fscanf(cfptr, "%d %14s %lf %lf", &num, name, &work, &appear) != EOF) {
@@ -102,12 +102,12 @@ int main() {
             }
         }
         else if (choice == 3) {
-            printf("¿é¤JÁZ®ÄÀÉ®×¦WºÙ: ");
+            printf("è¼¸å…¥è³‡æ–™æª”æ¡ˆåç¨±: ");
             scanf("%19s", file_name);
             printf("\n");
 
             if ((cfptr = fopen(file_name, "r")) == NULL) {
-                puts("§ä¤£¨ìÀÉ®×");
+                puts("æ‰¾ä¸åˆ°æª”æ¡ˆ");
             }
             else {
                 double total_work = 0, total_appear = 0;
@@ -120,22 +120,22 @@ int main() {
                 }
 
                 if (count > 0) {
-                    printf("¥­§¡¤u§@ÁZ®Ä: %.2f\n", total_work / count);
-                    printf("¥­§¡¥X®uÁZ®Ä: %.2f\n", total_appear / count);
+                    printf("å¹³å‡å·¥ä½œåˆ†æ•¸: %.2f\n", total_work / count);
+                    printf("å¹³å‡å‡ºå¸­åˆ†æ•¸: %.2f\n", total_appear / count);
                 }
                 else {
-                    puts("ÀÉ®×¤ºµL­û¤u¸ê®Æ¡C");
+                    puts("æª”æ¡ˆä¸­æ²’æœ‰å“¡å·¥è³‡æ–™ã€‚");
                 }
                 fclose(cfptr);
             }
         }
         else if (choice == 4) {
-            printf("¿é¤JÁZ®ÄÀÉ®×¦WºÙ: ");
+            printf("è¼¸å…¥è³‡æ–™æª”æ¡ˆåç¨±: ");
             scanf("%19s", file_name);
             printf("\n");
 
             if ((cfptr = fopen(file_name, "r")) == NULL) {
-                puts("§ä¤£¨ìÀÉ®×");
+                puts("æ‰¾ä¸åˆ°æª”æ¡ˆ");
             }
             else {
                 double total_work = 0, avg_work = 0;
@@ -151,8 +151,8 @@ int main() {
 
                     rewind(cfptr);
 
-                    puts("=================¤u§@°ª©ó¥­§¡ÁZ®Ä­û¤u==================");
-                    puts("½s¸¹      ©m¦W       ¤u§@ÁZ®Ä       ¥X®uÁZ®Ä");
+                    puts("=================å·¥ä½œé«˜æ–¼å¹³å‡åˆ†æ•¸ä¹‹å“¡å·¥==================");
+                    puts("ç·¨è™Ÿ       å§“å         å·¥ä½œåˆ†æ•¸       å‡ºå¸­åˆ†æ•¸");
 
                     while (fscanf(cfptr, "%d %14s %lf %lf", &num, name, &work, &appear) != EOF) {
                         if (work > avg_work) {
@@ -161,18 +161,18 @@ int main() {
                     }
                 }
                 else {
-                    puts("ÀÉ®×¤ºµL­û¤u¸ê®Æ¡C");
+                    puts("æª”æ¡ˆä¸­æ²’æœ‰å“¡å·¥è³‡æ–™ã€‚");
                 }
                 fclose(cfptr);
             }
         }
         else if (choice == 5) {
-            printf("¿é¤JÁZ®ÄÀÉ®×¦WºÙ: ");
+            printf("è¼¸å…¥è³‡æ–™æª”æ¡ˆåç¨±: ");
             scanf("%19s", file_name);
             printf("\n");
 
             if ((cfptr = fopen(file_name, "r")) == NULL) {
-                puts("§ä¤£¨ìÀÉ®×");
+                puts("æ‰¾ä¸åˆ°æª”æ¡ˆ");
             }
             else {
                 double total_appear = 0, avg_appear = 0;
@@ -188,8 +188,8 @@ int main() {
 
                     rewind(cfptr);
 
-                    puts("=================¥X¶Ô°ª©ó¥­§¡ÁZ®Ä­û¤u==================");
-                    puts("½s¸¹      ©m¦W       ¤u§@ÁZ®Ä       ¥X®uÁZ®Ä");
+                    puts("=================å‡ºå¸­é«˜æ–¼å¹³å‡åˆ†æ•¸ä¹‹å“¡å·¥==================");
+                    puts("ç·¨è™Ÿ       å§“å         å·¥ä½œåˆ†æ•¸       å‡ºå¸­åˆ†æ•¸");
 
                     while (fscanf(cfptr, "%d %14s %lf %lf", &num, name, &work, &appear) != EOF) {
                         if (appear > avg_appear) {
@@ -198,13 +198,13 @@ int main() {
                     }
                 }
                 else {
-                    puts("ÀÉ®×¤ºµL­û¤u¸ê®Æ¡C");
+                    puts("æª”æ¡ˆä¸­æ²’æœ‰å“¡å·¥è³‡æ–™ã€‚");
                 }
                 fclose(cfptr);
             }
         }
     }
 
-    puts("µ{¦¡µ²§ô\n");
+    puts("ç¨‹å¼çµæŸ\n");
     return 0;
 }
