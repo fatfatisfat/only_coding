@@ -3,7 +3,6 @@
 using namespace std;
 
 long long cc(int n){
-    cout << "n " << n << '\n';
     n *= n;
     int m = 2;
     if (m > n) return 0;
@@ -21,9 +20,8 @@ signed main(){
     cin >> n;
     cout << 0 << '\n';
     for (int i=2; i<=n; i++){
-        int neg = (i/2) * (i/3) * 2;
+        int neg = (i - 2 + 1) * (i -3 + 1) * 4;
         int ans = cc(i);
-        cout << "cc " << ans << '\n';
         ans -= neg;
         cout << ans << '\n';
     }
