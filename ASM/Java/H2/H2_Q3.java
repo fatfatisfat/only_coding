@@ -1,4 +1,4 @@
-package Java_Code.ASM;  //確保在資料夾內可執行
+package ASM.Java.H2;  //確保在資料夾內可執行
 
 public class H2_Q3 {
     public static void main(String[] args) {
