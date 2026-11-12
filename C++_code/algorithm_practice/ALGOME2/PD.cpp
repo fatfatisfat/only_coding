@@ -27,7 +27,7 @@ void solve(int n){
         return;
     }
     if (n & 1){
-    if (is_primes[n - 2]){
+        if (is_primes[n - 2]){
             cout << n << " is the sum of 2 and " << n-2 << ".\n";
         }else {
             cout << n << " is not the sum of two primes!\n";
